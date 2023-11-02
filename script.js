@@ -42,9 +42,11 @@ function addHoverListener () {
 
 
 //Paints the background black on hover
-function markHoveredDiv (div) {
+function markHoveredDiv (event) {
     //console.log(div.target);
-    div.target.classList.add("hovered");
+    event.target.classList.add("hovered");
+    event.target.style.backgroundColor = "rgb(" + randomRgbColor() + ")";
+    event.preventDefault();
 }
 
 
@@ -62,6 +64,20 @@ function redrawSquares () {
     
     drawSquares(desiredSideSize);
 }
+
+//Randomly generates an RGB color
+function randomRgbColor() {
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
+    return [r,g,b];
+}
+
+//Generates a random number between 0 and max
+function randomInteger(max) {
+    return Math.floor(Math.random()*(max + 1));
+}
+
 
 drawSquares(16);
 
