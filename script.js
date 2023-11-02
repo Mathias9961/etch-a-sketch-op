@@ -43,9 +43,21 @@ function addHoverListener () {
 
 //Paints the background black on hover
 function markHoveredDiv (event) {
-    //console.log(div.target);
-    event.target.classList.add("hovered");
-    event.target.style.backgroundColor = "rgb(" + randomRgbColor() + ")";
+
+    let sketchDiv = event.target;
+    let divOpacity = sketchDiv.style.opacity;
+
+    if (parseFloat(divOpacity) < 1) {
+        let newOpacity = parseFloat(divOpacity) + 0.1;
+        sketchDiv.style.opacity = newOpacity;
+    }
+
+    if (!sketchDiv.classList.contains("hovered")) {
+        sketchDiv.classList.add("hovered");
+        sketchDiv.style.backgroundColor = "rgb(" + randomRgbColor() + ")";
+        sketchDiv.style.opacity = 0.1;
+    }
+    
     event.preventDefault();
 }
 
