@@ -1,0 +1,13 @@
+.sketch-row {
+    display: flex;
+}
+
+.sketch {
+    min-width: 10px;
+    min-height: 10px;
+    border: solid blue 1px;
+}
+
+.hovered {
+    background-color: black;
+}
